@@ -72,13 +72,13 @@ jobs:
 
           # Define ARM architecture
           echo "ARCH=arm64" >> $GITHUB_ENV
-          echo "KCFLAGS=-march=armv8.6-a -O3 --param=min-pagesize=0" >> $GITHUB_ENV  # Optimization and target architecture flags
+          echo "KCFLAGS=--param=min-pagesize=0" >> $GITHUB_ENV  # Optimization and target architecture flags
           echo "LOCALVERSION=-Sultan-Cabage" >> $GITHUB_ENV
 
           export PATH=$GCC_PATH:$PATH
           export CROSS_COMPILE=aarch64-linux-gnu-
           export ARCH=arm64
-          export KCFLAGS="-march=armv8.6-a -O3 --param=min-pagesize=0"
+          export KCFLAGS="--param=min-pagesize=0"
 
       - name: Clone Dependencies
         run: |
