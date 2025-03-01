@@ -215,7 +215,7 @@ jobs:
           cd "$CONFIG"
           cp ./out/arch/arm64/boot/Image.lz4 ../AnyKernel3/
           #cp ./out/arch/arm64/boot/Image ../AnyKernel3/
-          cat ./out/google-devices/cheetah/dts/*.dtb  > ../AnyKernel3/dtb
+          #cat ./out/google-devices/cheetah/dts/*.dtb  > ../AnyKernel3/dtb
           cd ../AnyKernel3
           ZIP_NAME="Cabage_SUSFS_Sultan_Cheetah_${{ env.KSUVER }}-${{ github.run_id }}.zip"
           zip -r9 "../${ZIP_NAME}" ./* # Correct way to zip the contents of the directory
@@ -236,7 +236,7 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: kernel-zumapro
+          name: kernel-cheetah
           path: ${{ steps.resolve_path.outputs.resolved_path }}
           if-no-files-found: warn
           compression-level: 1
